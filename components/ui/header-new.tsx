@@ -3,16 +3,16 @@
 import Link from "next/link"
 import Image from "next/image"
 import { useState, useEffect } from "react"
-import { Sparkles, Workflow, ShieldCheck, DollarSign, Calendar, LogIn, Menu, X } from "lucide-react"
+import { Sparkles, Workflow, ShieldCheck, Play, Calendar, LogIn, Menu, X } from "lucide-react"
 import { LoginModal } from "./login-modal"
 import { CalendlyModal } from "./calendly-modal"
 import { Dock, DockIcon, DockItem, DockLabel } from "@/components/ui/dock"
 
 export function HeaderNew() {
-  const [scrolled, setScrolled] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [isLoginOpen, setIsLoginOpen] = useState(false)
   const [isCalendlyOpen, setIsCalendlyOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -52,9 +52,9 @@ export function HeaderNew() {
       icon: <ShieldCheck className="h-4 w-4" />,
     },
     {
-      title: "Pricing",
-      href: "#pricing",
-      icon: <DollarSign className="h-4 w-4" />,
+      title: "Demo",
+      href: "#coro-demo",
+      icon: <Play className="h-4 w-4" />,
     },
   ]
 
@@ -148,14 +148,14 @@ export function HeaderNew() {
         </div>
       )}
 
-      {/* Floating Dock - Only visible on scroll */}
+      {/* Floating Dock - Always visible with luxe glass effect */}
       <div
-        className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 hidden md:block transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] ${
-          scrolled ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-8 pointer-events-none"
+        className={`fixed top-4 left-1/2 -translate-x-1/2 z-40 hidden md:block transition-transform duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] ${
+          scrolled ? "scale-95" : "scale-100"
         }`}
       >
         <Dock
-          className="bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl border border-slate-200/50 dark:border-slate-700/50 shadow-lg"
+          className="bg-white/80 dark:bg-slate-900/80 backdrop-blur-2xl border border-slate-200/60 dark:border-slate-700/60 shadow-2xl shadow-slate-900/10 dark:shadow-slate-900/50 rounded-3xl"
           magnification={60}
           distance={120}
           panelHeight={44}
