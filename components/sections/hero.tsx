@@ -3,8 +3,7 @@
 import { ArrowRight, Calendar, Lock, MessageSquare, ChevronDown } from "lucide-react"
 import { ImageAccordion } from "@/components/ui/image-accordion"
 import { CalendlyModal } from "@/components/ui/calendly-modal"
-import { LiquidButton } from "@/components/ui/liquid-button"
-import { MagneticButton } from "@/components/ui/magnetic-button"
+import { SubtleButton } from "@/components/ui/subtle-button"
 import { useEffect, useState } from "react"
 
 const rotatingWords = ["Employees", "Customers", "Team", "Frontline"]
@@ -156,24 +155,15 @@ export function HeroSection() {
                 mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
               }`}
             >
-              <div className="relative group">
-                <div className="absolute -inset-2 bg-gradient-to-r from-[#0066FF] to-[#3385FF] rounded-2xl opacity-60 blur-xl group-hover:opacity-100 group-hover:blur-2xl transition-all duration-500" />
-                <LiquidButton
-                  href="#coro-demo"
-                  className="relative bg-gradient-to-r from-[#0066FF] to-[#0052CC] hover:from-[#0052CC] hover:to-[#0066FF] text-white h-12 px-6 text-base font-bold rounded-xl shadow-xl shadow-blue-500/40 hover:shadow-blue-500/60 hover:scale-105 transition-all duration-300 inline-flex items-center justify-center gap-2"
-                >
-                  See Coro in Action
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
-                </LiquidButton>
-              </div>
+              <SubtleButton href="#coro-demo" variant="primary" className="h-12 text-base">
+                See Coro in Action
+                <ArrowRight className="w-4 h-4" />
+              </SubtleButton>
 
-              <MagneticButton
-                onClick={() => setIsCalendlyOpen(true)}
-                className="h-12 px-6 text-base font-semibold border-2 border-blue-200 hover:bg-blue-50/50 rounded-xl bg-white/80 backdrop-blur-sm text-gray-700 hover:border-[#0066FF] hover:scale-105 transition-all duration-300 hover:shadow-lg inline-flex items-center justify-center gap-2"
-              >
+              <SubtleButton onClick={() => setIsCalendlyOpen(true)} variant="secondary" className="h-12 text-base">
                 <Calendar className="w-4 h-4 text-[#0066FF]" />
                 Book Demo
-              </MagneticButton>
+              </SubtleButton>
             </div>
 
             {/* Calendly Modal */}

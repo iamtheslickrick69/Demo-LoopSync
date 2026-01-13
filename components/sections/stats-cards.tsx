@@ -57,7 +57,7 @@ export function StatsCardsSection() {
     <section className="py-16 lg:py-24 bg-gradient-to-b from-white to-slate-50">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <ScrollAnimation>
-          <TiltCard className="grid border border-slate-200 rounded-3xl p-8 lg:p-12 grid-cols-1 gap-10 items-center lg:grid-cols-2 bg-white shadow-xl shadow-slate-200/50" intensity={10} glare={true}>
+          <TiltCard className="grid border border-slate-200 rounded-3xl p-8 lg:p-12 grid-cols-1 gap-10 items-center lg:grid-cols-2 bg-white shadow-xl shadow-slate-200/50" intensity={3} glare={false}>
             {/* Left Column: Content */}
             <div className="flex gap-8 flex-col">
               <div className="flex gap-4 flex-col">
