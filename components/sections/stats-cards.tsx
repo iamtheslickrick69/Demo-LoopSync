@@ -95,7 +95,7 @@ export function StatsCardsSection() {
             </div>
 
             {/* Right Column: Interactive Comparison */}
-            <div className={`relative rounded-2xl overflow-hidden transition-all duration-500 ${
+            <div className={`relative rounded-2xl overflow-hidden transition-all duration-[1500ms] ease-[cubic-bezier(0.4,0,0.2,1)] ${
               isHrTools ? "bg-slate-50" : "bg-gradient-to-br from-[#0066FF]/5 to-blue-50"
             }`}>
               {/* Toggle */}
@@ -103,7 +103,7 @@ export function StatsCardsSection() {
                 <div className="inline-flex rounded-full p-1.5 bg-white border border-slate-200 shadow-sm">
                   <button
                     onClick={() => handleTabChange("hrTools")}
-                    className={`px-5 py-2 rounded-full text-sm font-bold transition-all duration-300 ${
+                    className={`px-5 py-2 rounded-full text-sm font-bold transition-all duration-[800ms] ease-[cubic-bezier(0.4,0,0.2,1)] ${
                       isHrTools
                         ? "bg-slate-700 text-white shadow-lg"
                         : "text-slate-500 hover:text-slate-700 hover:bg-slate-50"
@@ -113,7 +113,7 @@ export function StatsCardsSection() {
                   </button>
                   <button
                     onClick={() => handleTabChange("coro")}
-                    className={`px-5 py-2 rounded-full text-sm font-bold transition-all duration-300 ${
+                    className={`px-5 py-2 rounded-full text-sm font-bold transition-all duration-[800ms] ease-[cubic-bezier(0.4,0,0.2,1)] ${
                       !isHrTools
                         ? "bg-gradient-to-r from-[#0066FF] to-[#0052CC] text-white shadow-lg shadow-blue-500/30"
                         : "text-slate-500 hover:text-slate-700 hover:bg-slate-50"
@@ -125,39 +125,39 @@ export function StatsCardsSection() {
               </div>
 
               {/* Divider */}
-              <div className={`h-px transition-all duration-500 ${
+              <div className={`h-px transition-all duration-[1000ms] ease-[cubic-bezier(0.4,0,0.2,1)] ${
                 isHrTools ? "bg-slate-200" : "bg-[#0066FF]/20"
               }`} />
 
               {/* Stats */}
               <div className="p-6 lg:p-8">
-                <div className={`grid grid-cols-3 gap-4 transition-all duration-500 ${
+                <div className={`grid grid-cols-3 gap-4 transition-all duration-[1200ms] ease-[cubic-bezier(0.4,0,0.2,1)] ${
                   isAnimating ? "opacity-0 scale-95" : "opacity-100 scale-100"
                 }`}>
                   {data.stats.map((stat, index) => (
                     <div key={index} className="text-center">
                       <div className="flex justify-center mb-3">
-                        <div className={`w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-500 ${
+                        <div className={`w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-[1500ms] ease-[cubic-bezier(0.4,0,0.2,1)] ${
                           isHrTools
                             ? "bg-slate-200"
                             : "bg-gradient-to-br from-[#0066FF] to-[#3B82F6] shadow-lg shadow-blue-500/30"
                         }`}>
-                          <stat.icon className={`w-6 h-6 transition-all duration-500 ${
+                          <stat.icon className={`w-6 h-6 transition-all duration-[1500ms] ease-[cubic-bezier(0.4,0,0.2,1)] ${
                             isHrTools ? "text-slate-400" : "text-white"
                           }`} />
                         </div>
                       </div>
-                      <div className={`text-2xl lg:text-3xl font-bold mb-1 transition-all duration-500 ${
+                      <div className={`text-2xl lg:text-3xl font-bold mb-1 transition-all duration-[1500ms] ease-[cubic-bezier(0.4,0,0.2,1)] ${
                         isHrTools ? "text-slate-400" : "text-[#0066FF]"
                       }`}>
                         {stat.value}
                       </div>
-                      <div className={`text-xs font-semibold mb-0.5 transition-all duration-500 ${
+                      <div className={`text-xs font-semibold mb-0.5 transition-all duration-[1500ms] ease-[cubic-bezier(0.4,0,0.2,1)] ${
                         isHrTools ? "text-slate-400" : "text-slate-900"
                       }`}>
                         {stat.label}
                       </div>
-                      <div className={`text-xs transition-all duration-500 ${
+                      <div className={`text-xs transition-all duration-[1500ms] ease-[cubic-bezier(0.4,0,0.2,1)] ${
                         isHrTools ? "text-slate-300" : "text-slate-500"
                       }`}>
                         {stat.description}
@@ -168,7 +168,7 @@ export function StatsCardsSection() {
               </div>
 
               {/* Bottom Accent */}
-              <div className={`h-1 transition-all duration-500 ${
+              <div className={`h-1 transition-all duration-[1500ms] ease-[cubic-bezier(0.4,0,0.2,1)] ${
                 isHrTools
                   ? "bg-slate-200"
                   : "bg-gradient-to-r from-[#0066FF] via-[#3B82F6] to-[#60A5FA]"
