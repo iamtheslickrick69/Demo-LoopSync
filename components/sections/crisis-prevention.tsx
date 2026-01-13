@@ -109,7 +109,7 @@ const FeaturedCrisisCard = ({ crisis }: { crisis: CrisisData }) => {
     <div className="group relative h-40 md:h-42 w-full cursor-pointer overflow-hidden rounded-xl shadow-lg">
       {/* Background Image - Grayscale by default, color on hover */}
       <div
-        className="absolute inset-0 transition-all duration-700 ease-out scale-100 grayscale group-hover:grayscale-0 group-hover:scale-105"
+        className="absolute inset-0 transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] scale-100 grayscale group-hover:grayscale-0 group-hover:scale-105"
         style={{
           backgroundImage: `url(${crisis.image})`,
           backgroundSize: "cover",
@@ -118,14 +118,14 @@ const FeaturedCrisisCard = ({ crisis }: { crisis: CrisisData }) => {
       />
 
       {/* Dark overlay */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-black/40 transition-all duration-500 group-hover:from-black/80 group-hover:via-black/50 group-hover:to-black/30" />
+      <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-black/40 transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:from-black/80 group-hover:via-black/50 group-hover:to-black/30" />
 
       {/* Content Container - Horizontal layout */}
       <div className="relative z-10 flex h-full items-center p-6 md:p-8">
         {/* Left side - Content */}
         <div className="flex-1 max-w-2xl">
           {/* WITHOUT CORO - Shows by default, hides on hover */}
-          <div className="transition-all duration-500 opacity-100 translate-y-0 group-hover:opacity-0 group-hover:-translate-y-4">
+          <div className="transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] opacity-100 translate-y-0 group-hover:opacity-0 group-hover:-translate-y-4">
             <span className="text-xs font-semibold text-red-400 uppercase tracking-wide">Without Coro</span>
             <h3 className="text-2xl md:text-3xl font-bold text-white mt-1 mb-2">{crisis.label}</h3>
             <p className="text-sm text-gray-300 mb-3 leading-relaxed max-w-lg">{crisis.without.description}</p>
@@ -136,7 +136,7 @@ const FeaturedCrisisCard = ({ crisis }: { crisis: CrisisData }) => {
           </div>
 
           {/* WITH CORO - Hidden by default, shows on hover */}
-          <div className="absolute top-1/2 -translate-y-1/2 left-6 md:left-8 transition-all duration-500 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-[-50%]">
+          <div className="absolute top-1/2 -translate-y-1/2 left-6 md:left-8 transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-[-50%]">
             <span className="text-xs font-semibold text-emerald-400 uppercase tracking-wide">With Coro</span>
             <h3 className="text-2xl md:text-3xl font-bold text-white mt-1 mb-2">{crisis.label}</h3>
             <p className="text-sm text-gray-200 mb-3 leading-relaxed max-w-lg">{crisis.with.description}</p>
@@ -149,7 +149,7 @@ const FeaturedCrisisCard = ({ crisis }: { crisis: CrisisData }) => {
 
         {/* Right side - Arrow */}
         <div className="hidden md:flex items-center justify-center">
-          <ArrowRight className="w-7 h-7 text-white/60 transition-all duration-500 group-hover:text-white group-hover:-rotate-45" />
+          <ArrowRight className="w-7 h-7 text-white/60 transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:text-white group-hover:-rotate-45" />
         </div>
       </div>
     </div>
@@ -162,7 +162,7 @@ const CrisisCard = ({ crisis }: { crisis: CrisisData }) => {
     <div className="group relative h-60 w-full cursor-pointer overflow-hidden rounded-xl shadow-lg">
       {/* Background Image - Grayscale by default, color on hover */}
       <div
-        className="absolute inset-0 transition-all duration-700 ease-out scale-100 grayscale group-hover:grayscale-0 group-hover:scale-110"
+        className="absolute inset-0 transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] scale-100 grayscale group-hover:grayscale-0 group-hover:scale-110"
         style={{
           backgroundImage: `url(${crisis.image})`,
           backgroundSize: "cover",
@@ -171,19 +171,19 @@ const CrisisCard = ({ crisis }: { crisis: CrisisData }) => {
       />
 
       {/* Dark overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/20 transition-all duration-500 group-hover:from-black/80 group-hover:via-black/40 group-hover:to-black/10" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/20 transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:from-black/80 group-hover:via-black/40 group-hover:to-black/10" />
 
       {/* Content Container */}
       <div className="relative z-10 flex h-full flex-col justify-between p-5">
         {/* Top - Arrow */}
         <div className="flex justify-end">
-          <ArrowRight className="w-5 h-5 text-white/60 transition-all duration-500 group-hover:text-white group-hover:-rotate-45" />
+          <ArrowRight className="w-5 h-5 text-white/60 transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:text-white group-hover:-rotate-45" />
         </div>
 
         {/* Bottom - Content */}
         <div>
           {/* WITHOUT CORO - Shows by default, hides on hover */}
-          <div className="transition-all duration-500 opacity-100 translate-y-0 group-hover:opacity-0 group-hover:-translate-y-4">
+          <div className="transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] opacity-100 translate-y-0 group-hover:opacity-0 group-hover:-translate-y-4">
             <span className="text-xs font-semibold text-red-400 uppercase tracking-wide">Without Coro</span>
             <h3 className="text-xl font-bold text-white mt-1 mb-2">{crisis.label}</h3>
             <p className="text-xs text-gray-300 mb-3 leading-relaxed">{crisis.without.description}</p>
@@ -194,7 +194,7 @@ const CrisisCard = ({ crisis }: { crisis: CrisisData }) => {
           </div>
 
           {/* WITH CORO - Hidden by default, shows on hover */}
-          <div className="absolute bottom-5 left-5 right-5 transition-all duration-500 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0">
+          <div className="absolute bottom-5 left-5 right-5 transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0">
             <span className="text-xs font-semibold text-emerald-400 uppercase tracking-wide">With Coro</span>
             <h3 className="text-xl font-bold text-white mt-1 mb-2">{crisis.label}</h3>
             <p className="text-xs text-gray-200 mb-3 leading-relaxed">{crisis.with.description}</p>

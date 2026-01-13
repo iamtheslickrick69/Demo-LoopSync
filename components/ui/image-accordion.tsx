@@ -45,7 +45,7 @@ function AccordionItem({ item, isActive, onMouseEnter }: AccordionItemProps) {
     <div
       className={`
         relative h-[400px] lg:h-[450px] rounded-2xl overflow-hidden cursor-pointer
-        transition-all duration-700 ease-in-out
+        transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)]
         ${isActive ? "w-[280px] sm:w-[320px] lg:w-[400px]" : "w-[50px] sm:w-[55px] lg:w-[60px]"}
       `}
       onMouseEnter={onMouseEnter}
@@ -54,7 +54,7 @@ function AccordionItem({ item, isActive, onMouseEnter }: AccordionItemProps) {
       <img
         src={item.imageUrl}
         alt={item.title}
-        className={`absolute inset-0 w-full h-full object-cover transition-all duration-700 ${
+        className={`absolute inset-0 w-full h-full object-cover transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] ${
           isActive ? "grayscale-0" : "grayscale"
         }`}
         onError={(e) => {
@@ -71,7 +71,7 @@ function AccordionItem({ item, isActive, onMouseEnter }: AccordionItemProps) {
       <span
         className={`
           absolute text-white text-base lg:text-lg font-semibold whitespace-nowrap
-          transition-all duration-500 ease-in-out drop-shadow-lg
+          transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] drop-shadow-lg
           ${
             isActive
               ? "bottom-6 left-1/2 -translate-x-1/2 rotate-0 opacity-100"
