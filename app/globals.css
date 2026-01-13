@@ -96,6 +96,18 @@
   --animate-glow-pulse: glow-pulse 2s ease-in-out infinite;
   --animate-scale-in: scale-in 0.5s ease-out forwards;
   --animate-stagger: stagger 0.8s ease-out forwards;
+  --animate-ripple: ripple 0.6s ease-out forwards;
+
+  @keyframes ripple {
+    0% {
+      transform: translate(-50%, -50%) scale(0);
+      opacity: 1;
+    }
+    100% {
+      transform: translate(-50%, -50%) scale(40);
+      opacity: 0;
+    }
+  }
 
   @keyframes line-shadow {
     0% {
@@ -453,4 +465,29 @@
   .stagger-5 {
     transition-delay: 0.5s;
   }
+}
+
+/* Custom Cursor - Hide default on desktop */
+@media (pointer: fine) {
+  * {
+    cursor: none !important;
+  }
+}
+
+/* Prevent cursor hiding on mobile */
+@media (pointer: coarse) {
+  * {
+    cursor: auto !important;
+  }
+}
+
+/* Smooth transitions for dark mode */
+html {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+* {
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 0.3s;
 }

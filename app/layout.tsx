@@ -1,6 +1,9 @@
 import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
+import { MagneticCursor } from '@/components/ui/magnetic-cursor'
+import { ParticleSystem } from '@/components/ui/particle-system'
+import { DarkModeToggle } from '@/components/ui/dark-mode-toggle'
 import './globals.css'
 
 const _geist = Geist({ subsets: ["latin"] });
@@ -50,7 +53,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`font-sans antialiased`}>
+        <MagneticCursor />
+        <ParticleSystem count={60} interactive={true} />
         {children}
+        <div className="fixed bottom-8 right-8 z-50">
+          <DarkModeToggle />
+        </div>
         <Analytics />
       </body>
     </html>

@@ -4,6 +4,7 @@ import { useState } from "react"
 import { Check, MessageSquare, Users, Zap, Mail, Clock, TrendingUp } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 import { ScrollAnimation } from "@/components/ui/scroll-animation"
+import { TiltCard } from "@/components/ui/tilt-card"
 
 const comparisonData = {
   hrTools: {
@@ -56,7 +57,7 @@ export function StatsCardsSection() {
     <section className="py-16 lg:py-24 bg-gradient-to-b from-white to-slate-50">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <ScrollAnimation>
-          <div className="grid border border-slate-200 rounded-3xl p-8 lg:p-12 grid-cols-1 gap-10 items-center lg:grid-cols-2 bg-white shadow-xl shadow-slate-200/50">
+          <TiltCard className="grid border border-slate-200 rounded-3xl p-8 lg:p-12 grid-cols-1 gap-10 items-center lg:grid-cols-2 bg-white shadow-xl shadow-slate-200/50" intensity={10} glare={true}>
             {/* Left Column: Content */}
             <div className="flex gap-8 flex-col">
               <div className="flex gap-4 flex-col">
@@ -173,7 +174,7 @@ export function StatsCardsSection() {
                   : "bg-gradient-to-r from-[#0066FF] via-[#3B82F6] to-[#60A5FA]"
               }`} />
             </div>
-          </div>
+          </TiltCard>
         </ScrollAnimation>
 
         {/* Hint text */}
