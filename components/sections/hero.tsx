@@ -135,13 +135,13 @@ export function HeroSection() {
                 mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
               }`}
             >
-              <div className="flex items-center gap-2 text-sm font-semibold text-gray-700 glass-card px-3 py-2.5 rounded-xl hover:border-[#0066FF]/60 hover:shadow-lg hover:shadow-blue-500/20 hover:scale-105 transition-all duration-300 cursor-pointer">
+              <div className="flex items-center gap-2 text-sm font-semibold text-gray-700 glass-card px-3 py-2.5 rounded-xl hover:border-[#0066FF]/60 hover:shadow-lg hover:shadow-blue-500/20 hover:-translate-y-1 transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] cursor-pointer">
                 <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-[#0066FF]/20 to-[#3385FF]/30 flex items-center justify-center shrink-0">
                   <Lock className="w-3.5 h-3.5 text-[#0066FF]" />
                 </div>
                 <span className="whitespace-nowrap">End-to-End Encrypted</span>
               </div>
-              <div className="flex items-center gap-2 text-sm font-semibold text-gray-700 glass-card px-3 py-2.5 rounded-xl hover:border-[#0066FF]/60 hover:shadow-lg hover:shadow-blue-500/20 hover:scale-105 transition-all duration-300 cursor-pointer">
+              <div className="flex items-center gap-2 text-sm font-semibold text-gray-700 glass-card px-3 py-2.5 rounded-xl hover:border-[#0066FF]/60 hover:shadow-lg hover:shadow-blue-500/20 hover:-translate-y-1 transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] cursor-pointer">
                 <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-[#0066FF]/20 to-[#3385FF]/30 flex items-center justify-center shrink-0">
                   <MessageSquare className="w-3.5 h-3.5 text-[#0066FF]" />
                 </div>

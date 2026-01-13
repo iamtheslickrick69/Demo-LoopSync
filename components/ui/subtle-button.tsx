@@ -18,12 +18,12 @@ export function SubtleButton({
   variant = "primary",
 }: SubtleButtonProps) {
   const baseClasses =
-    "inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-semibold transition-all duration-200 ease-out"
+    "inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-semibold transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]"
 
   const variantClasses =
     variant === "primary"
-      ? "bg-gradient-to-r from-[#0066FF] to-[#0052CC] text-white hover:shadow-lg hover:shadow-blue-500/25 hover:-translate-y-0.5"
-      : "bg-white/80 backdrop-blur-sm border-2 border-slate-200 text-slate-700 hover:border-[#0066FF] hover:bg-white hover:-translate-y-0.5 hover:shadow-md"
+      ? "bg-gradient-to-r from-[#0066FF] to-[#0052CC] text-white hover:shadow-lg hover:shadow-blue-500/25 hover:-translate-y-1"
+      : "bg-white/80 backdrop-blur-sm border-2 border-slate-200 text-slate-700 hover:border-[#0066FF] hover:bg-white hover:-translate-y-1 hover:shadow-md"
 
   if (href) {
     return (

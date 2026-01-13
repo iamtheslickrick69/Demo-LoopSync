@@ -50,7 +50,7 @@ export function TiltCard({ children, className = "", intensity = 15, glare = tru
   return (
     <div
       ref={cardRef}
-      className={`relative transition-all duration-300 ease-out ${className}`}
+      className={`relative transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] ${className}`}
       style={{
         transform,
         transformStyle: "preserve-3d",
@@ -62,7 +62,7 @@ export function TiltCard({ children, className = "", intensity = 15, glare = tru
       {/* Glare effect */}
       {glare && isHovered && (
         <div
-          className="absolute inset-0 pointer-events-none opacity-30 transition-opacity duration-300 rounded-[inherit]"
+          className="absolute inset-0 pointer-events-none opacity-30 transition-opacity duration-700 rounded-[inherit]"
           style={{
             background: `radial-gradient(circle 200px at ${glarePosition.x}% ${glarePosition.y}%, rgba(255,255,255,0.4), transparent 60%)`,
           }}
