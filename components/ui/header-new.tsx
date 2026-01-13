@@ -1,0 +1,212 @@
+"use client"
+
+import Link from "next/link"
+import Image from "next/image"
+import { useState, useEffect } from "react"
+import { Sparkles, Workflow, ShieldCheck, DollarSign, Calendar, LogIn, Menu, X } from "lucide-react"
+import { LoginModal } from "./login-modal"
+import { CalendlyModal } from "./calendly-modal"
+import { Dock, DockIcon, DockItem, DockLabel } from "@/components/ui/dock"
+
+export function HeaderNew() {
+  const [scrolled, setScrolled] = useState(false)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [isLoginOpen, setIsLoginOpen] = useState(false)
+  const [isCalendlyOpen, setIsCalendlyOpen] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50)
+    }
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
+
+  const navItems = [
+    {
+      title: "Home",
+      href: "#",
+      icon: (
+        <Image
+          src="/icon.png"
+          alt="Home"
+          width={24}
+          height={24}
+          className="object-contain"
+        />
+      ),
+    },
+    {
+      title: "Features",
+      href: "#features",
+      icon: <Sparkles className="h-5 w-5" />,
+    },
+    {
+      title: "How It Works",
+      href: "#how-it-works",
+      icon: <Workflow className="h-5 w-5" />,
+    },
+    {
+      title: "Security",
+      href: "#security",
+      icon: <ShieldCheck className="h-5 w-5" />,
+    },
+    {
+      title: "Pricing",
+      href: "#pricing",
+      icon: <DollarSign className="h-5 w-5" />,
+    },
+  ]
+
+  return (
+    <>
+      <header
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] ${
+          scrolled ? "py-2" : "py-4"
+        }`}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div
+            className={`flex items-center justify-between gap-4 px-4 py-3 rounded-2xl backdrop-blur-xl border transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] ${
+              scrolled
+                ? "bg-white/80 dark:bg-slate-900/80 border-slate-200/50 dark:border-slate-700/50 shadow-lg"
+                : "bg-white/60 dark:bg-slate-900/60 border-slate-200/30 dark:border-slate-700/30 shadow-sm"
+            }`}
+          >
+            {/* Logo - Left */}
+            <Link
+              href="/"
+              className={`flex items-center transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] ${
+                scrolled ? "w-10" : "w-40"
+              }`}
+            >
+              <div className="relative w-full h-10">
+                {/* Full Logo */}
+                <Image
+                  src="/logo-standard.png"
+                  alt="Coro"
+                  fill
+                  className={`object-contain object-left transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] ${
+                    scrolled ? "opacity-0 scale-90" : "opacity-100 scale-100"
+                  }`}
+                  priority
+                  unoptimized
+                />
+                {/* Icon Only */}
+                <Image
+                  src="/icon.png"
+                  alt="Coro"
+                  fill
+                  className={`object-contain transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] ${
+                    scrolled ? "opacity-100 scale-100" : "opacity-0 scale-90"
+                  }`}
+                  priority
+                  unoptimized
+                />
+              </div>
+            </Link>
+
+            {/* Navigation Dock - Center (Desktop) */}
+            <div className="hidden md:block">
+              <Dock
+                className="bg-white/40 dark:bg-slate-800/40 backdrop-blur-md border border-slate-200/50 dark:border-slate-700/50"
+                magnification={60}
+                distance={120}
+                panelHeight={48}
+              >
+                {navItems.map((item, idx) => (
+                  <DockItem
+                    key={idx}
+                    className="aspect-square rounded-xl bg-transparent hover:bg-slate-100/50 dark:hover:bg-slate-700/50 transition-colors duration-500"
+                  >
+                    <DockLabel>{item.title}</DockLabel>
+                    <DockIcon>
+                      <Link
+                        href={item.href}
+                        className="flex items-center justify-center w-full h-full text-[#0066FF] dark:text-blue-400"
+                      >
+                        {item.icon}
+                      </Link>
+                    </DockIcon>
+                  </DockItem>
+                ))}
+              </Dock>
+            </div>
+
+            {/* Action Buttons - Right (Desktop) */}
+            <div className="hidden md:flex items-center gap-3">
+              <button
+                onClick={() => setIsCalendlyOpen(true)}
+                className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#0066FF] to-[#0052CC] text-white font-semibold hover:shadow-lg hover:shadow-blue-500/25 hover:-translate-y-1 transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]"
+              >
+                <Calendar className="w-4 h-4" />
+                Book Demo
+              </button>
+
+              <button
+                onClick={() => setIsLoginOpen(true)}
+                className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm border-2 border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 font-semibold hover:border-[#0066FF] hover:bg-white dark:hover:bg-slate-800 hover:-translate-y-1 hover:shadow-md transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]"
+              >
+                <LogIn className="w-4 h-4" />
+                Login
+              </button>
+            </div>
+
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="md:hidden p-2.5 text-slate-700 dark:text-slate-200 hover:text-[#0066FF] rounded-xl hover:bg-slate-100/50 dark:hover:bg-slate-800/50 transition-all duration-500"
+            >
+              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            </button>
+          </div>
+
+          {/* Mobile Menu */}
+          {mobileMenuOpen && (
+            <div className="md:hidden mt-2 p-4 rounded-2xl bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl border border-slate-200/50 dark:border-slate-700/50 shadow-lg animate-in fade-in slide-in-from-top-2 duration-300">
+              <nav className="flex flex-col gap-2">
+                {navItems.map((item) => (
+                  <Link
+                    key={item.title}
+                    href={item.href}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-slate-100/50 dark:hover:bg-slate-800/50 hover:text-[#0066FF] transition-all duration-500"
+                  >
+                    <span className="text-[#0066FF] dark:text-blue-400">{item.icon}</span>
+                    <span className="font-medium">{item.title}</span>
+                  </Link>
+                ))}
+                <div className="flex flex-col gap-2 mt-2 pt-2 border-t border-slate-200 dark:border-slate-700">
+                  <button
+                    onClick={() => {
+                      setIsCalendlyOpen(true)
+                      setMobileMenuOpen(false)
+                    }}
+                    className="flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-gradient-to-r from-[#0066FF] to-[#0052CC] text-white font-semibold"
+                  >
+                    <Calendar className="w-4 h-4" />
+                    Book Demo
+                  </button>
+                  <button
+                    onClick={() => {
+                      setIsLoginOpen(true)
+                      setMobileMenuOpen(false)
+                    }}
+                    className="flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-white dark:bg-slate-800 border-2 border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 font-semibold"
+                  >
+                    <LogIn className="w-4 h-4" />
+                    Login
+                  </button>
+                </div>
+              </nav>
+            </div>
+          )}
+        </div>
+      </header>
+
+      {/* Modals */}
+      <LoginModal isOpen={isLoginOpen} onClose={() => setIsLoginOpen(false)} />
+      <CalendlyModal isOpen={isCalendlyOpen} onClose={() => setIsCalendlyOpen(false)} />
+    </>
+  )
+}

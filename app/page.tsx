@@ -1,4 +1,4 @@
-import { Header } from "@/components/ui/header"
+import { HeaderNew } from "@/components/ui/header-new"
 import { Footer } from "@/components/ui/footer"
 import { HeroSection } from "@/components/sections/hero"
 import { StatsCardsSection } from "@/components/sections/stats-cards"
@@ -15,7 +15,7 @@ import { CTASection } from "@/components/sections/cta"
 export default function HomePage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-white via-blue-50/30 to-white">
-      <Header />
+      <HeaderNew />
       <main>
         <HeroSection />
         <CrisisPreventionSection />
